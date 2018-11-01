@@ -1,10 +1,11 @@
 import React from 'react';
-import classses from './Toolbar.css'
-import Logo from '../../Logo/Logo'
+import classses from './Toolbar.css';
+import Logo from '../../Logo/Logo';
+import Navigation from '../NavigationItems/NavigationItems'
 
 const toolbar = (props) => (
     <header className={classses.Toolbar}>
-        <div>Menu</div>
+        <Navigation />
         <Logo />
         <nav>Menu</nav>
     </header>

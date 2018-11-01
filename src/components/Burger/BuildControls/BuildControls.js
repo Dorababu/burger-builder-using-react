@@ -4,8 +4,8 @@ import BuildControl from '../BuildControls/BuildControl/BuildControl'
 
 const controls = [
     { label: 'Cheese', type: 'cheese' },
-    { label: 'Bacon', type: 'bacon' },
-    { label: 'Meat', type: 'meat' },
+    { label: 'Veg Patty', type: 'veg_patty' },
+    { label: 'Chicken Patty', type: 'chicken_patty' },
     { label: 'Salad', type: 'salad' }];
 const buildControls = (props) => (
     <div className={classses.BuildControls}>

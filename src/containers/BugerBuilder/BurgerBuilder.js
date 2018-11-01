@@ -5,14 +5,14 @@ import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal'
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 
-const INGREDIENT_PRICES = { salad: 0.5, cheese: 0.8, meat: 2, bacon: 1 };
+const INGREDIENT_PRICES = { salad: 0.5, cheese: 0.8, chicken_patty: 2, veg_patty: 1 };
 
 class BurgerBuilder extends Component {
     state = {
         ingredients: {
             salad: 0,
-            bacon: 0,
-            meat: 0,
+            chicken_patty: 0,
+            veg_patty: 0,
             cheese: 0
         },
         totalPrice: 4,
