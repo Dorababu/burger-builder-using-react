@@ -1,0 +1,77 @@
+.Container {
+    margin: 10px 30px;
+}
+.OrderSummary{
+    margin: 10px 0px;
+    padding: 0px;
+}
+
+.OrderSummary thead tr{ 
+    background-color: rgb(238, 115, 58);
+    color: rgb(255, 255, 255)
+}
+
+.OrderSummary thead tr th{ 
+    border-spacing: 0px !important;
+    padding: 6px;
+    text-align: left;
+}
+
+.Footer{ 
+    background-color: rgb(241, 193, 148);
+}
+
+.Footer td {
+    text-align: right;
+    padding: 6px;
+    color: rgb(0, 0, 0)
+}
+
+.Label {
+    text-transform: capitalize;
+    padding: 10px;
+    font-weight: bold;
+    width: 100px;
+    color: rgb(22, 177, 60);
+    display: inline-block;
+}
+
+.Price {
+    padding: 10px;
+    font-weight: bold;
+    width: 80px;
+    color: rgb(116, 12, 47);
+    text-align: center;
+}
+
+.ItemPrice {
+    padding: 10px;
+    font-weight: bold;
+    width: 80px;
+    margin: 5px 0;
+    color: rgb(21, 76, 138);
+    text-align: center;
+}
+
+.CartTotal{
+    padding: 10px;
+    font-weight: bold;
+    color: rgb(116, 12, 47);
+    text-align: center !important;
+}
+
+.Quantity {
+    text-align: center;
+}
+
+.Center {
+    text-align: center !important;
+}
+
+.Title {
+    color: coral;
+}
+
+.ContinueLabel{
+    color: rgb(182, 182, 182);
+}
