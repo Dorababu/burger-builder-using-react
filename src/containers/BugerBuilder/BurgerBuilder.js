@@ -4,6 +4,7 @@ import Burger from '../../components/Burger/Burger'
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal'
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
+import axios from '../../axios-orders'
 
 const INGREDIENT_PRICES = { salad: 0.5, cheese: 0.8, chicken_patty: 2, veg_patty: 1 };
 
@@ -24,18 +25,39 @@ class BurgerBuilder extends Component {
         const sum = Object.values(ingredientsAdded).reduce((sum, el) => {
             return sum + el;
         }, 0);
-        this.setState({isCartEmpty : sum > 0})
+        this.setState({ isCartEmpty: sum > 0 })
     }
 
     orderNowHandler = () => {
-        this.setState({completeOrder:true});
+        this.setState({ completeOrder: true });
     }
 
     cancelOrderhandler = () => {
-        this.setState({completeOrder:false});
+        this.setState({ completeOrder: false });
     }
 
     continueOrderHandler = () => {
+        const orderDetails = {
+            ingredients: this.state.ingredients,
+            price: this.state.totalPrice,
+            customer: {
+                name: 'Dorababu Chodisetti',
+                address: {
+                    street: 'Kondapur',
+                    zipcode: '500081',
+                    city: 'Hyderabad',
+                    country: 'India'
+                },
+                email: 'dorababu.ch@gmail.com'
+            },
+            deliveryMethod: '1-Day'
+        }
+        axios.post('/orders.json', orderDetails)
+            .then(response => {
+                console.log(response);
+            }).catch(error => {
+                console.log(error);
+            })
         console.log('continue ...');
     }
 
@@ -69,8 +91,8 @@ class BurgerBuilder extends Component {
         return (
             <Aux>
                 <Modal show={this.state.completeOrder} closeModal={this.cancelOrderhandler}>
-                    <OrderSummary 
-                        ingredients={this.state.ingredients} 
+                    <OrderSummary
+                        ingredients={this.state.ingredients}
                         continueOrder={this.continueOrderHandler}
                         cancelOrder={this.cancelOrderhandler}
                         priceList={INGREDIENT_PRICES}
