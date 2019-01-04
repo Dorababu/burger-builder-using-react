@@ -37,28 +37,37 @@ class BurgerBuilder extends Component {
     }
 
     continueOrderHandler = () => {
-        const orderDetails = {
-            ingredients: this.state.ingredients,
-            price: this.state.totalPrice,
-            customer: {
-                name: 'Dorababu Chodisetti',
-                address: {
-                    street: 'Kondapur',
-                    zipcode: '500081',
-                    city: 'Hyderabad',
-                    country: 'India'
-                },
-                email: 'dorababu.ch@gmail.com'
-            },
-            deliveryMethod: '1-Day'
+        // const orderDetails = {
+        //     ingredients: this.state.ingredients,
+        //     price: this.state.totalPrice,
+        //     customer: {
+        //         name: 'Dorababu Chodisetti',
+        //         address: {
+        //             street: 'Kondapur',
+        //             zipcode: '500081',
+        //             city: 'Hyderabad',
+        //             country: 'India'
+        //         },
+        //         email: 'dorababu.ch@gmail.com'
+        //     },
+        //     deliveryMethod: '1-Day'
+        // }
+        // axios.post('/orders.json', orderDetails)
+        //     .then(response => {
+        //         console.log(response);
+        //     }).catch(error => {
+        //         console.log(error);
+        //     })
+        // console.log('continue ...');
+        const params = [];
+        for (let i in this.state.ingredients) {
+            params.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
         }
-        axios.post('/orders.json', orderDetails)
-            .then(response => {
-                console.log(response);
-            }).catch(error => {
-                console.log(error);
-            })
-        console.log('continue ...');
+        const queryString = params.join('&');
+        this.props.history.push({
+            pathname: '/checkout',
+            search: '?' + queryString + '&totalPrice=' + this.state.totalPrice
+        });
     }
 
     addIngredientHandler = (type) => {
